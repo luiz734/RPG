@@ -1,0 +1,49 @@
+>>nome do mapa	-n
+	"mapa_principal"
+
+
+>>id do mapa	-id
+	usar mapa principal P como referencia
+	"1n"    -> primeiro mapa ao norte de P
+	"2n4e"  -> partindo de P: norte, norte, leste, leste, leste, leste
+	cada "sub-mapa" é referenciado por "."
+	"1s.1"  -> primeiro sub-mapa do mapa ao sul de P
+	sub-mapas não possuem direcao (e, s, w, n)
+	".1"	-> primeiro sub-mapa de P
+	".2.1"  -> primeiro sub-mapa do segundo sub-mapa de P
+
+
+>>tamanho do mapa	-size
+x y
+
+
+>>matriz com id das sprites	-map
+
+                   (x vezes)
+          1  1  1  1 ...  1  1 
+          1  1  1  1 ...  1  1 
+          1  .  1  1 ...  1  1 
+          1  .  1  1 ...  1  1 
+(y vezes) 1  .  1  1 ...  1  1 
+          1  1  1  1 ...  1  1 
+	
+	blocos com mais de uma sprite são representados por "."
+	id_sprite_1.id_sprite2....id_sprite_n
+	onde a sprite_n fica por cima da sprite_n-1 ... que fica por cima da sprite 1
+	não é permitido 2 sprites iguais no mesmo bloco
+
+----------------------
+EXEMPLO MAPA
+----------------------
+-n"main"
+-id"."
+-size 8 8
+-map 1.2 1 1 1 1 1 1 1
+     1.2 1 2 2 2 2 2 2
+     1.4 1 2 6 6 6 6 2
+     1.4 1 2 6 6 6 6 2
+     1 1 2 6 6 6 6 2
+     1 1 2 6 6 6 6 2
+     1 1 7 6 6 6 6 2
+     1 1 2 2 2 2 2 2
+------------------------
