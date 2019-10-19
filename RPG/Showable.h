@@ -14,10 +14,12 @@ public:
 	sf::Sprite body;
 
 	int bodyScale;
+	bool isSolid;
 
-	Showable(Window* _window, std::string textureAddress, int x = 0, int y = 0, int height = 32, int width = 32);
+
+	Showable(Window* _window, std::string textureAddress, float scale=1, int x = 0, int y = 0, int width = 32, int height = 32);
 	virtual ~Showable();
 	virtual void Update() = 0;
-	virtual void Draw();
+	void Draw();
 	void SetBodyScale(float newScale);
 };

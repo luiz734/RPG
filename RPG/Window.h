@@ -1,8 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+class Stage;
 class Showable;
 class Character;
+class Object;
 class Map;
 
 class Window
@@ -17,9 +19,9 @@ public:
 
 	sf::RenderWindow window;
 	sf::Event events;
-
-	Character *player;
-	Map *stage;
+	
+	Character* player;
+	Stage* stage;
 
 	Window(); 
 	~Window();

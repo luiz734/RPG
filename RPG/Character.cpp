@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Character.h"
 #include "Window.h"
+#include "Stage.h"
 
 
 
-Character::Character(Window* _window, std::string textureAddress, int x, int y, int height, int width) :
-	Showable(_window, textureAddress, x, y, width, height),
+Character::Character(Window* _window, std::string textureAddress, float scale, int x, int y, int width, int height) :
+	Showable(_window, textureAddress, scale, x, y, width, height),
 	DEFAULT_SPRITE_SIZE(32),
 	ANIMATION_SPEED(10),
 	nextPosition(position), 
@@ -14,8 +15,7 @@ Character::Character(Window* _window, std::string textureAddress, int x, int y, 
 	animationFrame(0),
 	totalFrames(2),
 	velocity(2),
-	isMoving(false),
-	interactable(false)
+	isMoving(false)
 {
 	SetBodyScale(2);
 
@@ -32,10 +32,11 @@ void Character::Draw()
 	window->Draw(body);
 }
 
-void Character::Move()
+void Character::Move(bool shouldMove)
 {
+	// should move -> there isnt any block blocking the path
 	// if shouldnt move, so didnt
-	if (isMoving == false) return;
+	if (isMoving == false || shouldMove == false) return;
 
 	if (position.x < nextPosition.x) position.x+=velocity;
 	else if (position.x > nextPosition.x) position.x-= velocity;
@@ -49,10 +50,8 @@ void Character::Move()
 
 void Character::Update()
 {
-	Move();
 	// if is moving or the preview animation didnt finished
 	if (isMoving == true || animationFrame != 1) Animate(window->frameCounter);
-	window->window.draw(body);
 }
 
 void Character::SetDirection(int x, int y)
@@ -98,7 +97,6 @@ void Character::Animate(int windowFrame)
 
 	body.setTextureRect(sf::IntRect(animationFrame * size.x, animationType * size.y, size.x, size.y));
 	animationFrame = animationFrame == totalFrames ? 0 : animationFrame + 1;
-	std::cout << animationFrame * size.x << "\n";
 }
 
 

@@ -7,6 +7,7 @@
 #include "Showable.h"
 
 class Window;
+class Stage;
 
 class Character : public Showable
 {
@@ -22,13 +23,12 @@ public:
 	int totalFrames;
 	int velocity;
 	bool isMoving;
-	bool interactable;
 
 	
-	Character(Window* _window, std::string textureAddress, int x, int y, int height, int width);
+	Character(Window* _window, std::string textureAddress, float scale, int x, int y, int width, int height);
 	~Character();
 	void Draw();
-	void Move();
+	void Move(bool shouldMove);
 	void Update();
 	void SetDirection(int x, int y);
 	void Interact();

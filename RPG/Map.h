@@ -16,7 +16,7 @@ public:
 
 	std::string tempSize;
 
-	Map(Window* _window, std::string textureAddress, int x, int y, int height, int width);
+	Map(Window* _window, std::string textureAddress, float scale, int x, int y, int height, int width);
 	~Map();
 	void LoadMap();
 	void LoadFile(std::string address);

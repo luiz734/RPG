@@ -1,8 +1,8 @@
 #include "Map.h"
 #include "Window.h"
 
-Map::Map(Window* _window, std::string textureAddress, int x, int y, int height, int width)  :
-	Showable(_window, textureAddress, x, y, width, height),
+Map::Map(Window* _window, std::string textureAddress, float scale, int x, int y, int height, int width)  :
+	Showable(_window, textureAddress, scale, x, y, width, height),
 	map(4, std::vector<std::string>(4, "0"))
 {
 	body.setScale(2, 2);

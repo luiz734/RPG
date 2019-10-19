@@ -1,7 +1,9 @@
 #include "Window.h"
+#include "Stage.h"
 #include "Showable.h"
 #include "Character.h"
 #include "Map.h"
+#include "Object.h"
 
 Window::Window() :
 
@@ -17,8 +19,8 @@ Window::Window() :
 	window.setFramerateLimit(FRAME_RATE);
 
 
-	player = new Character(this, "suit-man.png", 0, 0, 32, 32);
-	stage = new Map(this, "bg-grass.png", 0, 0, WIDTH, HEIGHT);
+	stage = new Stage(this);
+	player = stage->player;
 }
 
 Window::~Window()
@@ -62,8 +64,7 @@ void Window::GameLoop()
 		window.clear(sf::Color(90, 90, 90));
 
 		// draw here
-		stage->Draw();
-		player->Update();
+		stage->DrawShowables();
 
 		window.display();
 

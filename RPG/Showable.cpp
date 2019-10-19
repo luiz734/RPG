@@ -2,11 +2,12 @@
 #include "Window.h"
 
 
-Showable::Showable(Window* _window, std::string textureAddress, int x, int y, int height, int width) :
+Showable::Showable(Window* _window, std::string textureAddress, float scale, int x, int y, int width, int height) :
 	window(_window),
 	position(x, y),
 	size(width, height),
-	bodyScale(1)
+	bodyScale(scale),
+	isSolid(false)
 {
 	texture.loadFromFile(textureAddress);
 	body.setTexture(texture);

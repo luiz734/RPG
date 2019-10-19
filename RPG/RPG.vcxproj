@@ -133,14 +133,18 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Showable.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Showable.h" />
+    <ClInclude Include="Stage.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
