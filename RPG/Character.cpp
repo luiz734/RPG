@@ -8,6 +8,7 @@
 Character::Character(Window* _window, std::string textureAddress, float scale, int x, int y, int width, int height) :
 	Showable(_window, textureAddress, scale, x, y, width, height),
 	DEFAULT_SPRITE_SIZE(32),
+	DEFAULT_CHARACTER_DIMENSION(1),
 	ANIMATION_SPEED(10),
 	nextPosition(position), 
 	direction(DOWN),
@@ -18,6 +19,9 @@ Character::Character(Window* _window, std::string textureAddress, float scale, i
 	isMoving(false)
 {
 	SetBodyScale(2);
+
+
+	dimension = sf::Vector2f(DEFAULT_CHARACTER_DIMENSION, DEFAULT_CHARACTER_DIMENSION);
 
 	Animate(0);
 }

@@ -6,7 +6,6 @@
 
 class Window;
 class Character;
-
 class Stage
 {
 public:

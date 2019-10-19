@@ -1,6 +1,6 @@
 #include "Showable.h"
 #include "Window.h"
-
+#include <iostream>
 
 Showable::Showable(Window* _window, std::string textureAddress, float scale, int x, int y, int width, int height) :
 	window(_window),
@@ -13,6 +13,11 @@ Showable::Showable(Window* _window, std::string textureAddress, float scale, int
 	body.setTexture(texture);
 	body.setPosition(position);
 	body.setScale(bodyScale, bodyScale);
+
+	dimension.x = texture.getSize().x * bodyScale / window->BLOCK_SIZE;
+	dimension.y = texture.getSize().y * bodyScale / window->BLOCK_SIZE;
+
+	std::cout << dimension.x << " " << dimension.y << "\n";
 }
 
 Showable::~Showable()

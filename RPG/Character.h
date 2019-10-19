@@ -13,6 +13,7 @@ class Character : public Showable
 {
 public:
 	const int DEFAULT_SPRITE_SIZE;
+	const int DEFAULT_CHARACTER_DIMENSION;
 	const int ANIMATION_SPEED;
 	
 	sf::Vector2f nextPosition;
@@ -23,6 +24,7 @@ public:
 	int totalFrames;
 	int velocity;
 	bool isMoving;
+
 
 	
 	Character(Window* _window, std::string textureAddress, float scale, int x, int y, int width, int height);
